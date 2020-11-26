@@ -39,10 +39,20 @@ function connect() {
 }
 
 function requestBluetoothDevice() {
+	 //  let serviceUuid = document.querySelector('#service').value;
+  // if (serviceUuid.startsWith('0x')) {
+  //   serviceUuid = parseInt(serviceUuid);
+  // }
+
+  // let characteristicUuid = document.querySelector('#characteristic').value;
+  // if (characteristicUuid.startsWith('0x')) {
+  //   characteristicUuid = parseInt(characteristicUuid);
+  // }
   log('Requesting bluetooth device...');
 
   return navigator.bluetooth.requestDevice({
-    filters: [{services: [0xFFE0]}],
+    // filters: [{services: [serviceUuid]}],
+    acceptAllDevices:true,
   }).
       then(device => {
         log('"' + device.name + '" bluetooth device selected');
